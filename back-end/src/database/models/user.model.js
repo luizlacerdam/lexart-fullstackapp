@@ -14,11 +14,11 @@ module.exports = (sequelize, DataTypes) => {
         password: { allowNull: false, type: DataTypes.STRING },
       },
   { 
-      timestamps: true, 
+      timestamps: false, 
       tableName: 'users',
       underscored: true,
-      createdAt: true,
-      updatedAt: true, 
+      createdAt: false,
+      updatedAt: false, 
   },
   );
   
