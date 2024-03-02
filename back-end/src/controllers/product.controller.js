@@ -62,8 +62,8 @@ const deleteProductById = async (req, res, next) => {
 const updateProduct = async (req, res, next) => {
     try {
         const { id } = req.params;
-        const { name, price } = req.body;
-        const updatedProduct = await productService.updateProduct(id, { name, price });
+        const productData = req.body;
+        const updatedProduct = await productService.updateProduct(id, productData);
         return res.status(200).json(updatedProduct);
     } catch (error) {
         next(error);
