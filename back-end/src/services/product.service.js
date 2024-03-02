@@ -5,6 +5,11 @@ const createProduct = async (newProduct) => {
     return createdProduct;
 };
 
+const createManyProducts = async (newProducts) => {
+    const createdProducts = await product.bulkCreate(newProducts);
+    return createdProducts;
+};
+
 const getAllProducts = async () => {
     const products = await product.findAll();
     return products;
@@ -27,6 +32,7 @@ const updateProduct = async (id, productData) => {
 
 module.exports = {
     createProduct,
+    createManyProducts,
     getAllProducts,
     getProductById,
     deleteProductById,
