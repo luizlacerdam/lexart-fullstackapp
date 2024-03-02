@@ -6,24 +6,24 @@
 */
 
 module.exports = (sequelize, DataTypes) => {
-  const cellphone = sequelize.define(
-  'cellphone', 
+  const product = sequelize.define(
+  'product', 
       {
         id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
         name: { allowNull: false, type: DataTypes.STRING },
         brand: { allowNull: false, type: DataTypes.STRING },
         model: { allowNull: false, type: DataTypes.STRING },
-        price: { allowNull: false, type: DataTypes.FLOAT },
+        price: { allowNull: false, type: DataTypes.DECIMAL },
         color: { allowNull: false, type: DataTypes.STRING },
       },
   { 
       timestamps: false, 
-      tableName: 'cellphones',
+      tableName: 'products',
       underscored: true,
       createdAt: false,
       updatedAt: false, 
   },
   );
   
-    return cellphone;
+    return product;
   };
