@@ -6,21 +6,24 @@
 */
 
 module.exports = (sequelize, DataTypes) => {
-  const user = sequelize.define(
-  'user', 
+  const cellphone = sequelize.define(
+  'cellphone', 
       {
         id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-        email: { allowNull: false, type: DataTypes.STRING },
-        password: { allowNull: false, type: DataTypes.STRING },
+        name: { allowNull: false, type: DataTypes.STRING },
+        brand: { allowNull: false, type: DataTypes.STRING },
+        model: { allowNull: false, type: DataTypes.STRING },
+        price: { allowNull: false, type: DataTypes.FLOAT },
+        color: { allowNull: false, type: DataTypes.STRING },
       },
   { 
       timestamps: false, 
-      tableName: 'users',
+      tableName: 'cellphones',
       underscored: true,
       createdAt: false,
       updatedAt: false, 
   },
   );
   
-    return user;
+    return cellphone;
   };
