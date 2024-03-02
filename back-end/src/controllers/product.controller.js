@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 const productService = require('../services/product.service');
 
 const createProduct = async (req, res, next) => {
@@ -5,8 +6,13 @@ const createProduct = async (req, res, next) => {
         const newProduct = req.body;
 
         if (Array.isArray(newProduct)) {
-            // const products = await Promise.all(newProduct.map((product) => productService.createProduct(product)));
-            console.log('array');
+            const transformedProducts = newProduct.reduce((acc, product) => {
+                const { data, ...baseAttrs } = product;
+                const productData = data.map((item) => ({ ...baseAttrs, ...item }));
+                return acc.concat(productData);
+              }, []);
+            const products = await productService.createManyProducts(transformedProducts);
+            return res.status(201).json(products);
         }
 
         if ('details' in newProduct) {
