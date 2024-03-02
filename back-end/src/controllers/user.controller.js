@@ -6,11 +6,11 @@ const { tokenGenerator } = require('../utils/tokenRelated');
 const createUser = async (req, res, next) => {
     try {
         const { email, password } = req.body;
-        const hashedPassword = hashMd5Encrypt(password);
         const userExists = await userService.getUserByEmail(email);
         if (userExists) {
             return res.status(409).json({ message: 'User already registered' });
         }
+        const hashedPassword = hashMd5Encrypt(password);
         const newUser = await userService.createUser({ email, password: hashedPassword });
         const { id } = newUser;
         const token = tokenGenerator({ data: { id, email } });
