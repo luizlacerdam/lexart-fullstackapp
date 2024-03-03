@@ -1,3 +1,5 @@
+/* eslint-disable global-require */
+/* eslint-disable import/no-dynamic-require */
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
@@ -6,8 +8,6 @@ const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 const config = require(`${__dirname}/../config/config.js`)[env];
 const db = {};
-const userModel = require('./user.model');
-const productModel = require('./product.model');
 
 let sequelize;
 if (config.use_env_variable) {
@@ -23,12 +23,6 @@ fs
     const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
     db[model.name] = model;
   });
-
-const product = productModel(sequelize, Sequelize.DataTypes);
-db[product.name] = product;
-
-const user = userModel(sequelize, Sequelize.DataTypes);
-db[user.name] = user;
 
 Object.keys(db).forEach((modelName) => {
   if (db[modelName].associate) {

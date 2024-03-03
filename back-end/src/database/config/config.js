@@ -12,7 +12,7 @@ const config = {
     dialectModule: pg,
     dialectOptions: {
       ssl: {
-        require: false,
+        require: true,
         rejectUnauthorized: false,
       },
     },
