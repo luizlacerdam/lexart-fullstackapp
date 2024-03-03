@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Link, useActionData, useNavigation } from 'react-router-dom';
 
-export default function LoginForm() {
+export default function SignUpForm() {
   const actionReturn = useActionData();
   const { state } = useNavigation();
 
@@ -12,7 +12,7 @@ export default function LoginForm() {
     >
       <div className="form-container p-5 rounded bg-white">
         <Form method="post" replace>
-          <h3 className="text-center">Login</h3>
+          <h3 className="text-center">Sign Up</h3>
           <div className="mb-2">
             <label htmlFor="email">Email</label>
             <input
@@ -31,31 +31,18 @@ export default function LoginForm() {
               placeholder="Enter password"
             />
           </div>
-          {/* <div className="mb-2">
-            <input
-              className="custom-control custom-checkbox"
-              type="checkbox"
-              id="check"
-            />
-            <label
-              htmlFor="check"
-              className="custom-input-label ms-1"
-            >
-              Remember me
-            </label>
 
-          </div> */}
           <div className="d-grid">
             <button
               className="btn btn-primary"
               disabled={ state === 'submitting' }
             >
-              {state === 'submitting' ? 'Logging in...' : 'Log in'}
+              {state === 'submitting' ? 'Creating...' : 'Create account'}
             </button>
           </div>
           <div className="d-flex justify-content-center">
-            <Link className="mt-3" to="/signup">
-              Sign up?
+            <Link className="mt-3" to="/">
+              Already have an account?
             </Link>
           </div>
         </Form>
