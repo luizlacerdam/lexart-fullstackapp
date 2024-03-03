@@ -54,8 +54,8 @@ export default function LoginForm() {
             </button>
           </div>
           <div className="d-flex justify-content-center">
-            <Link className="mt-3" to="/passwordrecovery">
-              Forgot password?
+            <Link className="mt-3" to="/signup">
+              Sign up?
             </Link>
           </div>
         </Form>

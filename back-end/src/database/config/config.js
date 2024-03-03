@@ -1,3 +1,5 @@
+const pg = require('pg');
+
 require('dotenv').config();
 
 const config = {
@@ -7,6 +9,7 @@ const config = {
     username: process.env.POSTGRES_USER,
     password: process.env.POSTGRES_PASSWORD,
     dialect: 'postgres',
+    dialectModule: pg,
     dialectOptions: {
       dateStrings: true,
       typeCast: true,
