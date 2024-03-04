@@ -7,7 +7,7 @@ export default async function LoginAction({ request }) {
   const email = formData.get('email');
   const password = formData.get('password');
   try {
-    const response = await requestLogin('/login', { email, password });
+    const response = await requestLogin('/user/login', { email, password });
     setItem('user', { token: response.token, ...response.user });
     return redirect('/app');
   } catch (er) {

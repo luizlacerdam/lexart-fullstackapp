@@ -45,7 +45,14 @@ const login = async (req, res, next) => {
     }
 };
 
+const userValidation = async (req, res) => 
+    res.status(200).json({ 
+        message: 'User validado com sucesso.',
+        status: 'OK',
+    });
+
 module.exports = {
     createUser,
     login,
+    userValidation,
 };

@@ -5,7 +5,7 @@ import { requestDataWithToken } from '../../../utils/requests';
 export default async function loginLoader() {
   try {
     const response = await requestDataWithToken(
-      '/login/validate',
+      '/user/login/validate',
       getUserToken(),
     );
     if (response.status === 'OK') {
