@@ -12,7 +12,7 @@ export default async function isLoggedIn() {
 
   try {
     const response = await requestDataWithToken(
-      '/login/validate',
+      '/user/validate',
       getUserToken(),
     );
     return response;

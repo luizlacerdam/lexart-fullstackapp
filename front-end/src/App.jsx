@@ -11,6 +11,9 @@ import loginAction from './pages/Login/actions/loginActions';
 import loginLoader from './pages/Login/loaders/loginLoader';
 import SignUpPage from './pages/SignUp';
 import SignUpAction from './pages/SignUp/actions/signUpAction';
+import AppHome from './pages/AppHome';
+import appLoader from './pages/AppHome/loaders/appLoader';
+import productLoader from './pages/AppHome/loaders/productsLoader';
 
 export default function App() {
   const route = createBrowserRouter(createRoutesFromElements(
@@ -26,6 +29,9 @@ export default function App() {
         path="/"
         element={ <Login /> }
       />
+      <Route path="/app" loader={ appLoader }>
+        <Route path="" loader={ productLoader } element={ <AppHome /> } />
+      </Route>
       ,
     </>,
   ));
