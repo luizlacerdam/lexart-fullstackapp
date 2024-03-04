@@ -10,12 +10,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import loginAction from './pages/Login/actions/loginActions';
 import loginLoader from './pages/Login/loaders/loginLoader';
 import SignUpPage from './pages/SignUp';
+import SignUpAction from './pages/SignUp/actions/signUpAction';
 
 export default function App() {
   const route = createBrowserRouter(createRoutesFromElements(
     <>
       <Route
-        // action={ signUpAc }
+        action={ SignUpAction }
         path="/signup"
         element={ <SignUpPage /> }
       />
