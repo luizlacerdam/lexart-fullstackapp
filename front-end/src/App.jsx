@@ -14,6 +14,7 @@ import SignUpAction from './pages/SignUp/actions/signUpAction';
 import AppHome from './pages/AppHome';
 import appLoader from './pages/AppHome/loaders/appLoader';
 import productLoader from './pages/AppHome/loaders/productsLoader';
+import Layout from './pages/components/Layout';
 
 export default function App() {
   const route = createBrowserRouter(createRoutesFromElements(
@@ -24,12 +25,13 @@ export default function App() {
         element={ <SignUpPage /> }
       />
       <Route
-        loader={ loginLoader }
+
         action={ loginAction }
         path="/"
         element={ <Login /> }
       />
-      <Route path="/app" loader={ appLoader }>
+
+      <Route path="/app" loader={ appLoader } element={ <Layout /> }>
         <Route path="" loader={ productLoader } element={ <AppHome /> } />
       </Route>
       ,
