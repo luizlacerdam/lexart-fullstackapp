@@ -2,8 +2,17 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
+import { requestDeleteWithToken } from '../../../utils/requests';
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, user }) {
+  const deleteProduct = async () => {
+    try {
+      const response = await requestDeleteWithToken(`/product/${product.id}`, user.token);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <tr className="text-center">
       <td>{product.id}</td>
@@ -16,7 +25,7 @@ export default function ProductCard({ product }) {
         <Button variant="primary">
           <i className="bi bi-pencil" />
         </Button>
-        <Button variant="danger">
+        <Button variant="danger" onClick={ deleteProduct }>
           <i className="bi bi-trash" />
         </Button>
       </td>
@@ -32,5 +41,8 @@ ProductCard.propTypes = {
     model: PropTypes.string,
     color: PropTypes.string,
     price: PropTypes.string,
+  }).isRequired,
+  user: PropTypes.shape({
+    token: PropTypes.string,
   }).isRequired,
 };

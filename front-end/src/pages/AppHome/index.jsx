@@ -4,12 +4,17 @@ import React from 'react';
 import Table from 'react-bootstrap/Table';
 import ProductCard from './components/ProductCard';
 import FilterComponent from './components/FilterComponent';
+import { getLocalStorage } from '../../utils/localStorageHandling';
 
 export default function AppHome() {
   const dataProducts = useLoaderData();
   console.log(dataProducts);
+  const user = getLocalStorage('user');
   return (
-    <div className="bg-primary d-flex flex-row justify-content-around vh-100 overflow-auto">
+    <div
+      className="bg-primary
+     d-flex flex-row justify-content-around vh-100 overflow-auto"
+    >
       <div className="container mt-5">
         <FilterComponent />
         <Table responsive striped bordered hover>
@@ -26,7 +31,7 @@ export default function AppHome() {
           </thead>
           <tbody>
             {dataProducts.map((product) => (
-              <ProductCard key={ product.id } product={ product } />
+              <ProductCard key={ product.id } product={ product } user={ user } />
             ))}
           </tbody>
         </Table>
