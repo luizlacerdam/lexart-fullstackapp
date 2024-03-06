@@ -4,7 +4,7 @@ import NavbarComponent from './Navbar';
 
 function Layout() {
   return (
-    <div className="d-flex flex-column">
+    <div className="d-flex flex-column vh-100">
       <NavbarComponent />
       <Outlet />
     </div>

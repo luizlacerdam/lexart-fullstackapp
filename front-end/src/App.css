@@ -3,3 +3,16 @@
   font-family: sans-serif;
 }
 
+.form-container{
+  width: 20vw;
+  min-width: 340px;
+}
+
+@media screen and (max-width: 900px) {
+  .form-container{
+    width: 340px!important;
+  }
+
+}
+
+

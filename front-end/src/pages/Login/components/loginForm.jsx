@@ -7,7 +7,7 @@ export default function LoginForm() {
 
   return (
     <div
-      className="login template d-flex
+      className="d-flex
     justify-content-center align-items-center w-100 vh-100 bg-primary"
     >
       <div className="form-container p-5 rounded bg-white">

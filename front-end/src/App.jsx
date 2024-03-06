@@ -6,6 +6,7 @@ import { Route,
   createRoutesFromElements } from 'react-router-dom';
 import Login from './pages/Login';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import loginAction from './pages/Login/actions/loginActions';
 import loginLoader from './pages/Login/loaders/loginLoader';
