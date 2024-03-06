@@ -21,7 +21,11 @@ export default function AppHome() {
      d-flex flex-row justify-content-around vh-100 overflow-auto"
     >
       <div className="container mt-5">
-        <FilterComponent />
+        <FilterComponent
+          setProducts={ setProducts }
+          products={ products }
+          dataProducts={ dataProducts }
+        />
         <Table responsive striped bordered hover>
           <thead>
             <tr className="text-center">
