@@ -2,9 +2,11 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import { requestDeleteWithToken } from '../../../utils/requests';
 
 export default function ProductCard({ product, user, products, setProducts }) {
+  const navigate = useNavigate();
   const deleteProduct = async () => {
     try {
       const response = await requestDeleteWithToken(`/product/${product.id}`, user.token);
@@ -15,6 +17,11 @@ export default function ProductCard({ product, user, products, setProducts }) {
       console.log(error);
     }
   };
+
+  const handleEdit = () => {
+    console.log(product.id);
+    navigate(`/app/edit/${product.id}`);
+  };
   return (
     <tr className="text-center">
       <td>{product.id}</td>
@@ -24,7 +31,7 @@ export default function ProductCard({ product, user, products, setProducts }) {
       <td>{product.color}</td>
       <td>{product.price}</td>
       <td className="d-flex justify-content-around flex-wrap">
-        <Button variant="primary">
+        <Button variant="primary" onClick={ handleEdit }>
           <i className="bi bi-pencil" />
         </Button>
         <Button variant="danger" onClick={ deleteProduct }>

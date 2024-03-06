@@ -17,6 +17,8 @@ import productLoader from './pages/AppHome/loaders/productsLoader';
 import Layout from './pages/components/Layout';
 import AddProduct from './pages/AddProduct';
 import addProductAction from './pages/AddProduct/actions/addProductAction';
+import EditProduct from './pages/EditProduct';
+import editProductLoader from './pages/EditProduct/loaders/editProductLoader';
 
 export default function App() {
   const route = createBrowserRouter(createRoutesFromElements(
@@ -33,6 +35,7 @@ export default function App() {
       />
 
       <Route path="/app" loader={ appLoader } element={ <Layout /> }>
+        <Route path="edit/:id" loader={ editProductLoader } element={ <EditProduct /> } />
         <Route path="add" action={ addProductAction } element={ <AddProduct /> } />
         <Route path="" loader={ productLoader } element={ <AppHome /> } />
 

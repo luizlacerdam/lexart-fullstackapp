@@ -14,7 +14,6 @@ export default async function addProductAction({ request }) {
 
     const response = await requestPostWithToken('/product/create', {
       name, brand, model, color, price }, user.token);
-    console.log(response);
     return response;
   } catch (er) {
     console.log(er);
