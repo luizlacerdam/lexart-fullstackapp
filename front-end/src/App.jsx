@@ -34,7 +34,7 @@ export default function App() {
       />
 
       <Route path="/app" loader={ appLoader } element={ <Layout /> }>
-        <Route path="add" loader={ addProductAction } element={ <AddProduct /> } />
+        <Route path="add" action={ addProductAction } element={ <AddProduct /> } />
         <Route path="" loader={ productLoader } element={ <AppHome /> } />
 
       </Route>

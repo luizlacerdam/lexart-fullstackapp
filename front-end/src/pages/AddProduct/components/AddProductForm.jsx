@@ -58,9 +58,9 @@ export default function AddProductForm() {
               placeholder="Enter product price"
             />
           </div>
-          <div className="d-grid w-25">
+          <div className="d-grid w-25 mt-5">
             <button
-              className="btn btn-primary"
+              className="btn btn-primary fs-2"
               disabled={ state === 'submitting' }
             >
               {state === 'submitting' ? 'Adding...' : 'Add Product'}
@@ -71,7 +71,7 @@ export default function AddProductForm() {
         <span
           className="d-flex justify-content-center mt-3 p-1 text-danger"
         >
-          {actionReturn ? actionReturn.response.data.message : null}
+          {/* {actionReturn ? actionReturn.response.data.message : null} */}
         </span>
       </div>
     </div>

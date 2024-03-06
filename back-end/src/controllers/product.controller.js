@@ -12,7 +12,7 @@ const createProduct = async (req, res, next) => {
                 return acc.concat(productData);
               }, []);
             const products = await productService.createManyProducts(transformedProducts);
-            return res.status(201).json(products);
+            return res.status(201).json({ message: 'Products created successfully', products });
         }
 
         if ('details' in newProduct) {
@@ -20,11 +20,11 @@ const createProduct = async (req, res, next) => {
             const product = await productService.createProduct(
             { name, price, brand: details.brand, model: details.model, color: details.color },
             );
-            return res.status(201).json(product);
+            return res.status(201).json({ message: 'Product created successfully', product });
         }
 
         const product = await productService.createProduct(newProduct);
-        return res.status(201).json(product);
+        return res.status(201).json({ message: 'Product created successfully', product });
     } catch (error) {
         next(error);
     }
@@ -52,8 +52,8 @@ const getProductById = async (req, res, next) => {
 const deleteProductById = async (req, res, next) => {
     try {
         const { id } = req.params;
-        await productService.deleteProductById(id);
-        return res.status(204).end();
+        const response = await productService.deleteProductById(id);
+        return res.status(204).json(response);
     } catch (error) {
         next(error);
     }
