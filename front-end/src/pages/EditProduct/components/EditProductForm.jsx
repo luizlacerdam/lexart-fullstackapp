@@ -6,7 +6,6 @@ import { Form, useActionData, useLoaderData, useNavigation } from 'react-router-
 export default function EditProductForm() {
   const dataProducts = useLoaderData();
   const actionReturn = useActionData();
-  console.log(actionReturn);
   const [name, setName] = useState(dataProducts.name);
   const [brand, setBrand] = useState(dataProducts.brand);
   const [model, setModel] = useState(dataProducts.model);
@@ -102,8 +101,7 @@ export default function EditProductForm() {
         </Form>
         <span
           className={ `d-flex
-           justify-content-center mt-3 p-1 text-${
-    actionReturn.status === 201 ? 'success' : 'danger'}` }
+           justify-content-center mt-3 p-1 text-success` }
         >
           {actionReturn ? actionReturn.data.message : null}
         </span>

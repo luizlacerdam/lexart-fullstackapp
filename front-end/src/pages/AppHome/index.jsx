@@ -14,7 +14,6 @@ export default function AppHome() {
     setProducts(dataProducts);
   }, [dataProducts]);
 
-  console.log(dataProducts);
   const user = getLocalStorage('user');
   return (
     <div

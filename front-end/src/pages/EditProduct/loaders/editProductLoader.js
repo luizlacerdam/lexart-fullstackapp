@@ -5,7 +5,6 @@ export default async function editProductLoader({ params }) {
   const user = getLocalStorage('user');
   const { id } = params;
   const data = await requestDataWithToken(`/product/${id}`, user.token);
-  console.log(data);
   if (data) {
     return data;
   }

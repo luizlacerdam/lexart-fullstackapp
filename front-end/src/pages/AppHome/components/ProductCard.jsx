@@ -19,7 +19,6 @@ export default function ProductCard({ product, user, products, setProducts }) {
   };
 
   const handleEdit = () => {
-    console.log(product.id);
     navigate(`/app/edit/${product.id}`);
   };
   return (
