@@ -19,12 +19,15 @@ export default function SignUpForm() {
               className="form-control"
               type="email"
               name="email"
+              required
               placeholder="Enter email"
             />
           </div>
           <div className="mb-2">
             <label htmlFor="password">Password</label>
             <input
+              min={ 6 }
+              required
               className="form-control"
               type="password"
               name="password"
