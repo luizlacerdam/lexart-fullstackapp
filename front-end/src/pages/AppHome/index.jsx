@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 import React from 'react';
 import Table from 'react-bootstrap/Table';
 import ProductCard from './components/ProductCard';
+import FilterComponent from './components/FilterComponent';
 
 export default function AppHome() {
   const dataProducts = useLoaderData();
@@ -10,7 +11,7 @@ export default function AppHome() {
   return (
     <div className="bg-primary d-flex flex-row justify-content-around vh-100 overflow-auto">
       <div className="container mt-5">
-        <h1 className="text-center mb-3">Products List</h1>
+        <FilterComponent />
         <Table responsive striped bordered hover>
           <thead>
             <tr className="text-center">
