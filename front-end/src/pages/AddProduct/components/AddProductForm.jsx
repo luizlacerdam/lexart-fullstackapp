@@ -1,8 +1,11 @@
+/* eslint-disable no-magic-numbers */
+/* eslint-disable no-constant-condition */
 import React from 'react';
 import { Form, useActionData, useNavigation } from 'react-router-dom';
 
 export default function AddProductForm() {
   const actionReturn = useActionData();
+
   const { state } = useNavigation();
 
   return (
@@ -69,9 +72,10 @@ export default function AddProductForm() {
 
         </Form>
         <span
-          className="d-flex justify-content-center mt-3 p-1 text-danger"
+          className={ `d-flex
+           justify-content-center mt-3 p-1 text-${201 ? 'success' : 'danger'}` }
         >
-          {/* {actionReturn ? actionReturn.response.data.message : null} */}
+          {actionReturn ? actionReturn.data.message : null}
         </span>
       </div>
     </div>
