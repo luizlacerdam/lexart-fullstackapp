@@ -1,19 +1,23 @@
 import { getLocalStorage } from '../../../utils/localStorageHandling';
-import { requestPostWithToken } from '../../../utils/requests';
+import { requestPatchWithToken } from '../../../utils/requests';
 
-export default async function addProductAction({ request }) {
+export default async function editProductAction({ request }) {
   try {
     const formData = await request.formData();
+    const id = formData.get('id');
     const name = formData.get('name');
     const brand = formData.get('brand');
     const model = formData.get('model');
     const color = formData.get('color');
-    const price = formData.get('price');
-    console.log(name, brand, model, color, price);
-    const user = getLocalStorage('user');
+    let price = formData.get('price');
 
-    const response = await requestPostWithToken('/product/create', {
+    price = parseFloat(price);
+
+    const user = getLocalStorage('user');
+    console.log(id);
+    const response = await requestPatchWithToken(`/product/${id}`, {
       name, brand, model, color, price }, user.token);
+    console.log(response);
     return response;
   } catch (er) {
     console.log(er);

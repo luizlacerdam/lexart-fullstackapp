@@ -1,11 +1,18 @@
 /* eslint-disable no-magic-numbers */
 /* eslint-disable no-constant-condition */
-import React from 'react';
-import { Form, useLoaderData, useNavigation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Form, useActionData, useLoaderData, useNavigation } from 'react-router-dom';
 
 export default function EditProductForm() {
   const dataProducts = useLoaderData();
-  //   const actionReturn = useActionData();
+  const actionReturn = useActionData();
+  console.log(actionReturn);
+  const [name, setName] = useState(dataProducts.name);
+  const [brand, setBrand] = useState(dataProducts.brand);
+  const [model, setModel] = useState(dataProducts.model);
+  const [color, setColor] = useState(dataProducts.model);
+  const [price, setPrice] = useState(dataProducts.price);
+
   const { state } = useNavigation();
 
   return (
@@ -16,6 +23,18 @@ export default function EditProductForm() {
       <div className="container p-5 rounded bg-white">
         <Form method="post" replace className="d-flex flex-column align-items-center">
           <h3 className="text-center">Edit Product</h3>
+
+          <div className="d-flex flex-direction-row align-items-baseline mb-2 w-25">
+            <label htmlFor="id" className="fs-3">Id</label>
+            <input
+              className="form-control form-control-lg m-3"
+              type="text"
+              name="id"
+              readOnly
+              placeholder={ dataProducts.id }
+              value={ dataProducts.id }
+            />
+          </div>
           <div className="d-flex flex-direction-row align-items-baseline mb-2 w-75">
             <label htmlFor="name" className="fs-3">Name</label>
             <input
@@ -23,6 +42,8 @@ export default function EditProductForm() {
               type="text"
               name="name"
               placeholder={ dataProducts.name }
+              onChange={ (e) => setName(e.target.value) }
+              value={ name }
             />
           </div>
           <div className="d-flex flex-direction-row align-items-baseline mb-2 w-75">
@@ -31,6 +52,8 @@ export default function EditProductForm() {
               className="form-control form-control-lg m-3"
               type="text"
               name="brand"
+              value={ brand }
+              onChange={ (e) => setBrand(e.target.value) }
               placeholder={ dataProducts.brand }
             />
           </div>
@@ -40,6 +63,8 @@ export default function EditProductForm() {
               className="form-control form-control-lg m-3"
               type="text"
               name="model"
+              value={ model }
+              onChange={ (e) => setModel(e.target.value) }
               placeholder={ dataProducts.model }
             />
           </div>
@@ -49,6 +74,8 @@ export default function EditProductForm() {
               className="form-control form-control-lg m-3"
               type="text"
               name="color"
+              value={ color }
+              onChange={ (e) => setColor(e.target.value) }
               placeholder={ dataProducts.color }
             />
           </div>
@@ -58,6 +85,8 @@ export default function EditProductForm() {
               className="form-control form-control-lg m-3"
               type="number"
               name="price"
+              value={ price }
+              onChange={ (e) => setPrice(e.target.value) }
               placeholder={ dataProducts.price }
             />
           </div>
@@ -73,9 +102,10 @@ export default function EditProductForm() {
         </Form>
         <span
           className={ `d-flex
-           justify-content-center mt-3 p-1 text-${201 ? 'success' : 'danger'}` }
+           justify-content-center mt-3 p-1 text-${
+    actionReturn.status === 201 ? 'success' : 'danger'}` }
         >
-          {/* {actionReturn ? actionReturn.data.message : null} */}
+          {actionReturn ? actionReturn.data.message : null}
         </span>
       </div>
     </div>

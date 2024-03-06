@@ -37,8 +37,8 @@ export const requestPostWithToken = async (endpoint, body, token) => {
 };
 
 export const requestPatchWithToken = async (endpoint, body, token) => {
-  const { data } = await api.patch(endpoint, body, { headers: { Authorization: token } });
-  return data;
+  const response = await api.patch(endpoint, body, { headers: { Authorization: token } });
+  return response;
 };
 
 export const requestDeleteWithToken = async (endpoint, token) => {
