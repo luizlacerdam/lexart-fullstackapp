@@ -7,7 +7,7 @@ export default async function isLoggedIn() {
   const userLocal = getItem('user');
 
   if (!userLocal) {
-    throw redirect('/login');
+    throw redirect('/');
   }
 
   try {
@@ -18,6 +18,6 @@ export default async function isLoggedIn() {
     return response;
   } catch (er) {
     console.log(er);
-    throw redirect('/login');
+    throw redirect('/');
   }
 }

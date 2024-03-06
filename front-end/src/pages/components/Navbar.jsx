@@ -31,7 +31,7 @@ export default function NavbarComponent() {
                 <span className="">Add Product</span>
               </Nav.Link>
             </LinkContainer>
-            <LinkContainer onClick={ () => logout() } to="/login">
+            <LinkContainer onClick={ () => logout() } to="/">
               <Nav.Link className="">
                 <span className="">Logout</span>
               </Nav.Link>

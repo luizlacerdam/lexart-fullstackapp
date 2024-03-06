@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-max-depth */
 import { useLoaderData } from 'react-router-dom';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
 import ProductCard from './components/ProductCard';
 import FilterComponent from './components/FilterComponent';
@@ -8,6 +8,12 @@ import { getLocalStorage } from '../../utils/localStorageHandling';
 
 export default function AppHome() {
   const dataProducts = useLoaderData();
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    setProducts(dataProducts);
+  }, [dataProducts]);
+
   console.log(dataProducts);
   const user = getLocalStorage('user');
   return (
@@ -30,8 +36,14 @@ export default function AppHome() {
             </tr>
           </thead>
           <tbody>
-            {dataProducts.map((product) => (
-              <ProductCard key={ product.id } product={ product } user={ user } />
+            {products.map((product) => (
+              <ProductCard
+                key={ product.id }
+                product={ product }
+                user={ user }
+                setProducts={ setProducts }
+                products={ products }
+              />
             ))}
           </tbody>
         </Table>

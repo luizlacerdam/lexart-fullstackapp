@@ -4,10 +4,12 @@ import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
 import { requestDeleteWithToken } from '../../../utils/requests';
 
-export default function ProductCard({ product, user }) {
+export default function ProductCard({ product, user, products, setProducts }) {
   const deleteProduct = async () => {
     try {
       const response = await requestDeleteWithToken(`/product/${product.id}`, user.token);
+      const newArray = products.filter((p) => p.id !== product.id);
+      setProducts(newArray);
       console.log(response);
     } catch (error) {
       console.log(error);
@@ -45,4 +47,13 @@ ProductCard.propTypes = {
   user: PropTypes.shape({
     token: PropTypes.string,
   }).isRequired,
+  products: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    brand: PropTypes.string,
+    model: PropTypes.string,
+    color: PropTypes.string,
+    price: PropTypes.string,
+  })).isRequired,
+  setProducts: PropTypes.func.isRequired,
 };
