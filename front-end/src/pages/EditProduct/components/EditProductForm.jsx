@@ -85,6 +85,7 @@ export default function EditProductForm() {
               type="number"
               name="price"
               value={ price }
+              step={ 0.01 }
               onChange={ (e) => setPrice(e.target.value) }
               placeholder={ dataProducts.price }
             />

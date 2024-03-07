@@ -11,8 +11,9 @@ export default async function editProductAction({ request }) {
     const color = formData.get('color');
     let price = formData.get('price');
 
+    price = parseFloat(price).toFixed(2);
     price = parseFloat(price);
-
+    console.log(price);
     const user = getLocalStorage('user');
     const response = await requestPatchWithToken(`/product/${id}`, {
       name, brand, model, color, price }, user.token);
