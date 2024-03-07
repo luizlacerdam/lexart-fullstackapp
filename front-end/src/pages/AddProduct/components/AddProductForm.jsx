@@ -57,6 +57,7 @@ export default function AddProductForm() {
             <input
               className="form-control form-control-lg m-3"
               type="number"
+              step={ 0.01 }
               name="price"
               placeholder="Enter product price"
             />
