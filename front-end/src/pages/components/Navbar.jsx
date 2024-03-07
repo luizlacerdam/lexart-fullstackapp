@@ -22,7 +22,7 @@ export default function NavbarComponent() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <LinkContainer to="/app">
-              <Nav.Link className="fs-5 my-1 py-2 py-sm-0 text-center text-sm-start">
+              <Nav.Link className="">
                 <span className="">Products</span>
               </Nav.Link>
             </LinkContainer>
