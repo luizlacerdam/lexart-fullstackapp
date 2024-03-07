@@ -5,11 +5,9 @@ import getUserToken from './getUserToken';
 
 export default async function isLoggedIn() {
   const userLocal = getItem('user');
-
-  if (!userLocal) {
+  if (!userLocal || userLocal.length === 0) {
     throw redirect('/');
   }
-
   try {
     const response = await requestDataWithToken(
       '/user/validate',

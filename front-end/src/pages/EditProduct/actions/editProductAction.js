@@ -13,7 +13,7 @@ export default async function editProductAction({ request }) {
 
     price = parseFloat(price).toFixed(2);
     price = parseFloat(price);
-    console.log(price);
+
     const user = getLocalStorage('user');
     const response = await requestPatchWithToken(`/product/${id}`, {
       name, brand, model, color, price }, user.token);
