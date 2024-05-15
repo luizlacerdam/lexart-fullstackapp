@@ -11,7 +11,7 @@ export default function FilterComponent({ setProducts, products, dataProducts })
       return;
     }
 
-    const filteredProducts = products.filter(
+    const filteredProducts = dataProducts.filter(
       (product) => product[filter].toLowerCase().includes(search.toLowerCase()),
     );
     setProducts(filteredProducts);
@@ -19,7 +19,7 @@ export default function FilterComponent({ setProducts, products, dataProducts })
 
   return (
     <div className="mb-5">
-      <h1 className="text-center mb-3">Filter Component</h1>
+      <h1 className="text-center mb-3">Search Component</h1>
       <div className="d-flex justify-content-around">
         <input
           type="text"

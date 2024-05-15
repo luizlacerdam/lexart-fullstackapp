@@ -31,20 +31,6 @@ export default function LoginForm() {
               placeholder="Enter password"
             />
           </div>
-          {/* <div className="mb-2">
-            <input
-              className="custom-control custom-checkbox"
-              type="checkbox"
-              id="check"
-            />
-            <label
-              htmlFor="check"
-              className="custom-input-label ms-1"
-            >
-              Remember me
-            </label>
-
-          </div> */}
           <div className="d-grid">
             <button
               className="btn btn-primary"
