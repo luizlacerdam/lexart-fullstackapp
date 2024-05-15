@@ -19,6 +19,7 @@ export default function AddProductForm() {
           <div className="d-flex flex-direction-row align-items-baseline mb-2 w-75">
             <label htmlFor="name" className="fs-3">Name</label>
             <input
+              id="name"
               className="form-control form-control-lg m-3"
               type="text"
               name="name"
@@ -28,6 +29,7 @@ export default function AddProductForm() {
           <div className="d-flex flex-direction-row align-items-baseline mb-2 w-75">
             <label htmlFor="brand" className="fs-3">Brand</label>
             <input
+              id="brand"
               className="form-control form-control-lg m-3"
               type="text"
               name="brand"
@@ -37,6 +39,7 @@ export default function AddProductForm() {
           <div className="d-flex flex-direction-row align-items-baseline mb-2 w-75">
             <label htmlFor="model" className="fs-3">Model</label>
             <input
+              id="model"
               className="form-control form-control-lg m-3"
               type="text"
               name="model"
@@ -46,6 +49,7 @@ export default function AddProductForm() {
           <div className="d-flex flex-direction-row align-items-baseline mb-2 w-75">
             <label htmlFor="color" className="fs-3">Color</label>
             <input
+              id="color"
               className="form-control form-control-lg m-3"
               type="text"
               name="color"
@@ -55,6 +59,7 @@ export default function AddProductForm() {
           <div className="d-flex flex-direction-row align-items-baseline mb-2 w-75">
             <label htmlFor="price" className="fs-3">Price</label>
             <input
+              id="price"
               className="form-control form-control-lg m-3"
               type="number"
               step={ 0.01 }
