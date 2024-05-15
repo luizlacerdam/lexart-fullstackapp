@@ -2,6 +2,8 @@
 # Lexart Fullstack App
 In this project was created a product app to do the CRUD operations and filtering with user auth. 
 
+## Deployed
+https://lexart-fullstackapp-front-end.vercel.app/
 
 ## Stacks
 
