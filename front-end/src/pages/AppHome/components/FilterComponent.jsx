@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-export default function FilterComponent({ setProducts, products, dataProducts }) {
+export default function FilterComponent({ setProducts, dataProducts }) {
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState('name');
 
@@ -47,14 +47,6 @@ export default function FilterComponent({ setProducts, products, dataProducts })
 
 FilterComponent.propTypes = {
   setProducts: PropTypes.func.isRequired,
-  products: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number,
-    name: PropTypes.string,
-    brand: PropTypes.string,
-    model: PropTypes.string,
-    color: PropTypes.string,
-    price: PropTypes.string,
-  })).isRequired,
   dataProducts: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
