@@ -22,6 +22,7 @@ export default function FilterComponent({ setProducts, dataProducts }) {
       <h1 className="text-center mb-3">Search Component</h1>
       <div className="d-flex justify-content-around">
         <input
+          id="search-input"
           type="text"
           className="form-control w-25"
           placeholder="Search"
@@ -30,6 +31,7 @@ export default function FilterComponent({ setProducts, dataProducts }) {
           value={ search }
         />
         <select
+          id="search-select-input"
           className="form-select w-25"
           aria-label="Default select example"
           onChange={ (e) => setFilter(e.target.value) }
