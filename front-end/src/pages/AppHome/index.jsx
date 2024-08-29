@@ -5,7 +5,7 @@ import Table from 'react-bootstrap/Table';
 import ProductCard from './components/ProductCard';
 import FilterComponent from './components/FilterComponent';
 import { getLocalStorage } from '../../utils/localStorageHandling';
-import './styles/appHome.css'; // Import your custom CSS
+import './styles/appHome.css';
 
 export default function AppHome() {
   const dataProducts = useLoaderData();
@@ -18,7 +18,10 @@ export default function AppHome() {
   const user = getLocalStorage('user');
 
   return (
-    <div className="bg-primary d-flex flex-column justify-content-start vh-100 overflow-auto">
+    <div
+      className="bg-primary d-flex
+     flex-column justify-content-start vh-100 overflow-auto"
+    >
       <div className="container mt-5">
         <FilterComponent
           setProducts={ setProducts }

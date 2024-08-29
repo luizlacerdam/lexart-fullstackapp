@@ -1,11 +1,9 @@
-/* Base styles for the product table */
 .product-table th,
 .product-table td {
     text-align: center;
     vertical-align: middle;
 }
 
-/* Responsive block layout for small screens */
 @media (max-width: 576px) {
 
     .product-table,

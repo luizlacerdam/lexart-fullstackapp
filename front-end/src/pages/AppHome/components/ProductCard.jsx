@@ -7,6 +7,7 @@ import { requestDeleteWithToken } from '../../../utils/requests';
 
 export default function ProductCard({ product, user, products, setProducts }) {
   const navigate = useNavigate();
+
   const deleteProduct = async () => {
     try {
       const response = await requestDeleteWithToken(`/product/${product.id}`, user.token);
@@ -21,6 +22,7 @@ export default function ProductCard({ product, user, products, setProducts }) {
   const handleEdit = () => {
     navigate(`/app/edit/${product.id}`);
   };
+
   return (
     <tr className="text-center">
       <td data-label="Id">{product.id}</td>
@@ -31,13 +33,21 @@ export default function ProductCard({ product, user, products, setProducts }) {
       <td data-label="Price">{product.price}</td>
       <td
         data-label="Actions"
-        className="d-flex flex-row
-         flex-md-row justify-content-around align-items-center"
+        className="d-flex flex-wrap justify-content-center align-items-center h-100"
+        style={ { minHeight: '100%', height: 'auto' } }
       >
-        <Button variant="primary" onClick={ handleEdit } className="mb-2 mb-md-0">
+        <Button
+          variant="primary"
+          onClick={ handleEdit }
+          className="m-1"
+        >
           <i className="bi bi-pencil" />
         </Button>
-        <Button variant="danger" onClick={ deleteProduct }>
+        <Button
+          variant="danger"
+          onClick={ deleteProduct }
+          className="m-1"
+        >
           <i className="bi bi-trash" />
         </Button>
       </td>
@@ -57,13 +67,15 @@ ProductCard.propTypes = {
   user: PropTypes.shape({
     token: PropTypes.string,
   }).isRequired,
-  products: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number,
-    name: PropTypes.string,
-    brand: PropTypes.string,
-    model: PropTypes.string,
-    color: PropTypes.string,
-    price: PropTypes.string,
-  })).isRequired,
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      brand: PropTypes.string,
+      model: PropTypes.string,
+      color: PropTypes.string,
+      price: PropTypes.string,
+    }),
+  ).isRequired,
   setProducts: PropTypes.func.isRequired,
 };
