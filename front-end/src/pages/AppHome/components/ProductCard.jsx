@@ -23,14 +23,18 @@ export default function ProductCard({ product, user, products, setProducts }) {
   };
   return (
     <tr className="text-center">
-      <td>{product.id}</td>
-      <td>{product.name}</td>
-      <td>{product.brand}</td>
-      <td>{product.model}</td>
-      <td>{product.color}</td>
-      <td>{product.price}</td>
-      <td className="d-flex justify-content-around flex-wrap">
-        <Button variant="primary" onClick={ handleEdit }>
+      <td data-label="Id">{product.id}</td>
+      <td data-label="Name">{product.name}</td>
+      <td data-label="Brand">{product.brand}</td>
+      <td data-label="Model">{product.model}</td>
+      <td data-label="Color">{product.color}</td>
+      <td data-label="Price">{product.price}</td>
+      <td
+        data-label="Actions"
+        className="d-flex flex-row
+         flex-md-row justify-content-around align-items-center"
+      >
+        <Button variant="primary" onClick={ handleEdit } className="mb-2 mb-md-0">
           <i className="bi bi-pencil" />
         </Button>
         <Button variant="danger" onClick={ deleteProduct }>

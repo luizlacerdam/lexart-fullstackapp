@@ -1,0 +1,55 @@
+/* Base styles for the product table */
+.product-table th,
+.product-table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Responsive block layout for small screens */
+@media (max-width: 576px) {
+
+    .product-table,
+    .product-table thead,
+    .product-table tbody,
+    .product-table th,
+    .product-table td,
+    .product-table tr {
+        display: block;
+    }
+
+    .product-table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .product-table tr {
+        margin-bottom: 1rem;
+        border-bottom: 2px solid #dee2e6;
+    }
+
+    .product-table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.75rem;
+        text-align: left;
+        border: none;
+        border-bottom: 1px solid #dee2e6;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    .product-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-left: 0.75rem;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .product-table td:last-child {
+        border-bottom: 0;
+    }
+}
