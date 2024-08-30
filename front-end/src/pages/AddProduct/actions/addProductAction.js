@@ -9,7 +9,6 @@ export default async function addProductAction({ request }) {
     const model = formData.get('model');
     const color = formData.get('color');
     const price = formData.get('price');
-    console.log(name, brand, model, color, price);
     const user = getLocalStorage('user');
 
     const response = await requestPostWithToken('/product/create', {
